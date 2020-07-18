@@ -7,7 +7,7 @@ autoplotter is a python package for GUI based exploratory data analysis. It is b
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install autoplotter.
 
 ```bash
 pip install autoplotter
@@ -33,7 +33,7 @@ Please make sure to update tests as appropriate.
 
 ## Support 
 
-- Support me by following on <a href="https://github.com/ersaurabhverma" target="_blank">linkedin</a> and <a href="https://www.linkedin.com/in/vermasaurabh8010/" target="_blank">linkedin</a> link as well.
+- Support me by following on <a href="https://github.com/ersaurabhverma" target="_blank">Github</a> and <a href="https://www.linkedin.com/in/vermasaurabh8010/" target="_blank">LinkedIn</a>.
 
 
 ## License
