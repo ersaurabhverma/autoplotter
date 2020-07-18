@@ -23,7 +23,7 @@ df = px.data.tips() # Getting the   Restaurant data
 
 run_app(df) # Calling the autoplotter.run_app
 ```
-![autoplotter VIDEO](https://www.screencast.com/t/cCBio3Rz3P5)
+[![autoplotter](http://img.youtube.com/vi/KOxbO0EI4MA/0.jpg)](https://youtu.be/58PJkLaErLM "AutoPlotter")
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
