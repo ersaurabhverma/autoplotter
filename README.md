@@ -31,5 +31,13 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Support 
+
+- Support me by following on <a href="https://github.com/ersaurabhverma" target="_blank">linkedin</a> and <a href="https://www.linkedin.com/in/vermasaurabh8010/" target="_blank">linkedin</a> link as well.
+
+
 ## License
-MIT
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
