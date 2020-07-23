@@ -88,13 +88,9 @@ def plot_distributions(df,cols,theme):
     return out_plots
 
 
-def association(df,type,col1,col2):
+def association(df,col1,col2):
     if col1 is not None and col2  is not None:
-
-        if type== 'Predictive Power Score':
-            return [html.Label(f' PPS between {col1} and {col2} = {pps.score(df,col1,col2)["ppscore"]}',style={'margin':'10px 0 0 10px'})]
-        else:
-            return [html.Label(f' Correlation between {col1} and {col2} = {df[col1].corr(df[col2])}',style={'margin':'10px 0 0 10px'})]
+        return [html.Label(f' Correlation between {col1} and {col2} = {df[col1].corr(df[col2])}',style={'margin':'10px 0 0 10px'})]
 
 
 
@@ -112,22 +108,24 @@ def get_pps_array(df):
 def dataexploration(df):
     # Graphs
     distributions_plots=html.Div(id='hist_plot',children=[])
-    pps_fig = go.Figure(data=go.Heatmap(z=get_pps_array(df), x=df.columns,y=df.columns))
-    pps_fig.update_layout(title='Heat Map for Predicted Power Score')
-    association_structure=html.Div(children=[get_radios(),
+    corr_arr=get_corr_array(df)
+    corr_fig=go.Figure(data=go.Heatmap(z=corr_arr, x=corr_arr.index,y=corr_arr.columns))
+    corr_fig.update_layout(title='Heat Map for Correlation')
+
+    association_structure=html.Div(children=[html.Div('Correlation'),
 
 
     html.Div([dcc.Dropdown(id='col1',options=[{ 'label': f"{col} ( {df[col].dtype} )", 'value': col} for col in df.columns 
        
-    ])], style={'width': '48%', 'display': 'inline-block','margin': '10px 0 10px 10px'} ),
+     if df[col].dtype!='object'])], style={'width': '48%', 'display': 'inline-block','margin': '10px 0 10px 10px'} ),
 
     html.Div([dcc.Dropdown(id='col2',options=[{ 'label': f"{col} ( {df[col].dtype} )", 'value': col} for col in df.columns 
        
-    ])], style={'width': '48%', 'float': 'right', 'display': 'inline-block','margin': '10px 10px 10px 0'} ),
+    if df[col].dtype!='object'])], style={'width': '48%', 'float': 'right', 'display': 'inline-block','margin': '10px 10px 10px 0'} ),
 
       html.Div(id='corr',children=[],style={'dislay':'block'}),
       dbc.Button("Show/Hide", outline=True, color="success", className="mr-1",id='show-more',style={'margin': '10px 10px 10px 10px'}),
-      html.Div(style={'display':'none'},id='heatmap',children=[html.Div([dcc.Graph(figure=pps_fig)],id='heatmap-figure')])
+      html.Div(style={'display':'none'},id='heatmap',children=[html.Div([dcc.Graph(figure=corr_fig)],id='heatmap-figure')])
     
     
     ])
