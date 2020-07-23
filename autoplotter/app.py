@@ -43,29 +43,19 @@ def run_app(df):
             children = plot_distributions(df,col_list,theme)
             return children
         
-        @app.callback([Output('corr','children'),Output('heatmap','style'),Output('heatmap-figure','children')],
-                        [Input('col1','value'),Input('col2','value'),Input('asso_type','value'),Input('show-more','n_clicks')])
-        def update_association(col1,col2,asso_type,n):
+        @app.callback([Output('corr','children'),Output('heatmap','style')],
+                        [Input('col1','value'),Input('col2','value'),Input('show-more','n_clicks')])
+        def update_association(col1,col2,n):
             heat_map_style={'display':'none'}
-            heat_map_child=[]
             try:
-                corr_child=association(df,asso_type,col1,col2)
+                corr_child=association(df,col1,col2)
             except (TypeError):
                 corr_child=[html.P('Please select numeric columns', style={'color':'red'})]
             if n is not None:
                 if n%2==1:
                     heat_map_style=_params()
-            if asso_type=='Predictive Power Score':
-                pps_fig = go.Figure(data=go.Heatmap(z=get_pps_array(df), x=df.columns,y=df.columns))
-                pps_fig.update_layout(title='Heat Map for Predicted Power Score')
-                heat_map_child=[dcc.Graph(figure=pps_fig)]
-            if asso_type=='Correlation':
-                corr_arr=get_corr_array(df)
-                corr_fig=go.Figure(data=go.Heatmap(z=corr_arr, x=corr_arr.index,y=corr_arr.columns))
-                corr_fig.update_layout(title='Heat Map for Correlation')
-                heat_map_child=[dcc.Graph(figure=corr_fig)]
 
-            return corr_child,heat_map_style,heat_map_child
+            return corr_child,heat_map_style
 
         @app.callback([Output('output_plots','children'),Output('add-parameter-drop','options'),Output('color_div','style'),
         Output('facet_col_div','style'),Output('margin_x_div','style'),Output('margin_y_div','style'),Output('trendline_div','style'),
