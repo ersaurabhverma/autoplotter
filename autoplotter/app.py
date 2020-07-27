@@ -10,8 +10,16 @@ import pandas as pd
 import logging
 import plotly.graph_objects as go
 from .data_exploration import dataexploration, plot_distributions ,association,get_pps_array,get_corr_array
-from win32api import GetSystemMetrics
-WIDTH = GetSystemMetrics(0)-400
+
+# Fails on Ubuntu
+# from win32api import GetSystemMetrics
+# WIDTH = GetSystemMetrics(0)-400
+
+# Alternative for Ubuntu
+import tkinter as tk
+root = tk.Tk()
+WIDTH = root.winfo_screenwidth()
+
 added_params_value=[]
 external_stylesheets = [dbc.themes.BOOTSTRAP,{
     'href': 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
