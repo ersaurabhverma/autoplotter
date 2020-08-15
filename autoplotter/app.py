@@ -24,7 +24,7 @@ external_stylesheets = [dbc.themes.BOOTSTRAP,{
 
 
 
-def run_app(df):
+def run_app(df, host="0.0.0.0", port=12345):
     app = JupyterDash(__name__, external_stylesheets=external_stylesheets,suppress_callback_exceptions=True)
     app.config.suppress_callback_exceptions = True
     app.layout = html.Div([
@@ -140,8 +140,8 @@ def run_app(df):
            
             return plot_children, options, color_style, facet_col_style , margin_x_style, margin_y_style, trendline_style , size_style ,animation_style, opacity_style, barmode_style, boxmode_style,q_style,points_style    
 
-        app.run_server(mode='inline',width=WIDTH,port=12345)
+        app.run_server(mode='inline',width=WIDTH,host=host,port=port)
     except:
-        app.run_server(mode='inline',width=WIDTH,port=12345)
+        app.run_server(mode='inline',width=WIDTH,host=host,port=port)
 
 
