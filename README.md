@@ -25,7 +25,7 @@ run_app(df,mode = "inline", host="127.0.0.1", port=5000) # Calling the autoplott
 
 run_app(df,mode = "external", host="127.0.0.1", port=5000) # Calling the autoplotter.run_app in external mode
 ```
-[[![Autoplotter.gif](https://s8.gifyu.com/images/Autoplotter.gif)](https://gifyu.com/image/gyrf)]
+[![Autoplotter.gif](https://s8.gifyu.com/images/Autoplotter.gif)](https://gifyu.com/image/gyrf)
 
 
 ## Contributing
@@ -35,7 +35,9 @@ Please make sure to update tests as appropriate.
 
 ## Support 
 
-- Support me by following on <a href="https://github.com/ersaurabhverma" target="_blank">Github</a> and <a href="https://www.linkedin.com/in/vermasaurabh8010/" target="_blank">LinkedIn</a>.
+- Support me by following on <a href="https://github.com/ersaurabhverma" target="_blank">Github</a> and <a href="https://www.linkedin.com/in/vermasaurabh8010/" target="_blank">LinkedIn</a>
+
+<a href="https://www.buymeacoffee.com/ersaurabhverma" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 
 ## License
